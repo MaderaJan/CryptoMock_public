@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CryptoMock</string>
+
+    <string name="error_unknown">Neočekávaná chyba</string>
+    <string name="general_select">Vybrat</string>
+
+    <string name="main_bottom_menu_wallet">Peněženka</string>
+    <string name="main_bottom_menu_exchange_rate">Kurzy</string>
+
+    <string name="wallet_card_label_balance">Zůstatek</string>
+    <string name="wallet_label_portfolio">Portfolio</string>
+
+    <string name="exchange_title">Exchange</string>
+    <string name="exchange_label_from">Z</string>
+    <string name="exchange_label_to">Do</string>
+    <string name="exchange_label_amount">Částka</string>
+    <string name="exchange_label_amount_hint">Chci směnit…</string>
+    <string name="exchange_success_exchange">Směna byla úspěšná!</string>
+    <string name="exchange_error_from_currency_not_selected">Měna z nebyla vybrána</string>
+    <string name="exchange_error_to_currency_not_selected">Měna do nebyla vybrána</string>
+    <string name="exchange_error_not_enough_money">Na peněžence máte nedostatek peněz</string>
+    <string name="exchange_error_wrong_money_format">Byl zadán špatný formát měny</string>
+    <string name="exchange_error_cannot_exchange">Není možné směnit</string>
+</resources>

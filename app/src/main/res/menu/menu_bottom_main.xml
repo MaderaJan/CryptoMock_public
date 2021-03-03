@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_wallet"
+        android:title="@string/main_bottom_menu_wallet"
+        android:enabled="true"
+        android:icon="@drawable/ic_pig_wallet" />
+
+    <item
+        android:id="@+id/action_exchange_rate"
+        android:title="@string/main_bottom_menu_exchange_rate"
+        android:enabled="true"
+        android:icon="@drawable/ic_exchange" />
+
+</menu>

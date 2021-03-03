@@ -1,0 +1,56 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.CryptoMock" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_700</item>
+        <item name="colorOnPrimary">@color/text_color_light</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_primary_700</item>
+        <item name="colorOnSecondary">@color/text_color_dark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- TEXT -->
+    <style name="Text.Regular.Normal.Light" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/text_color_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Regular.Normal.Dark" parent="Text.Regular.Normal.Light">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="Text.Medium.Normal.Dark" parent="Text.Regular.Normal.Dark">
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Medium.Normal.Light" parent="Text.Medium.Normal.Dark">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="Text.Medium.Large.Light" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/text_color_light</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- RIPPLE -->
+    <style name="View.ClickAble" parent="Widget.MaterialComponents.TextView">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="View.ClickAble.Round">
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="View.ClickAble.Normal">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+
+</resources>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--  TODO 1. Ukotvit fragment_container -->
+    <!--  TODO 1. Ukotvení fragment manager, BottomNavigation Component -->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"

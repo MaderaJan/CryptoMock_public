@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--    TODO 4. Vytvořit view pro wallet-->
+    <!--    TODO 4. Popsat view pro wallet-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

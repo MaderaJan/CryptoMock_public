@@ -3,6 +3,7 @@ package cz.maderajan.cryptomock
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cz.maderajan.cryptomock.databinding.ActivityMainBinding
+import cz.maderajan.cryptomock.ui.WalletFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,8 +13,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root) // TODO 3. binding view
+        setContentView(binding.root)
 
-        // TODO 7. Fragment manager
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, WalletFragment())
+            .commit()
     }
 }

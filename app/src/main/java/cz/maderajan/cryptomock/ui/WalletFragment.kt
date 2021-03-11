@@ -1,12 +1,17 @@
 package cz.maderajan.cryptomock.ui
 
-class WalletFragment {
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import cz.maderajan.cryptomock.R
+import cz.maderajan.cryptomock.databinding.FragmentWalletBinding
 
-    // TODO 6. Bindovat view do wallet fragmentu
-//    private lateinit var binding: FragmentWalletBinding
+class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        binding = FragmentWalletBinding.bind(view)
-//    }
+    private lateinit var binding: FragmentWalletBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentWalletBinding.bind(view)
+    }
 }

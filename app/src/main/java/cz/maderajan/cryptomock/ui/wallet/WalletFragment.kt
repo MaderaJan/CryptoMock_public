@@ -1,4 +1,4 @@
-package cz.maderajan.cryptomock.ui
+package cz.maderajan.cryptomock.ui.wallet
 
 import android.os.Bundle
 import android.view.View

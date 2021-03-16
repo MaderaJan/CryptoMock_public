@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <!-- TODO 4. (S) vytvořit layout pro exchange rate -> FIGMA    -->
+        <!-- TODO avatar_text_view -->
+        <!-- TODO style="@style/Text.Regular.Normal.Light" -->
+
+        <!-- TODO currency_name_text_view -->
+        <!-- TODO style="@style/Text.Medium.Normal.Dark" -->
+
+        <!-- TODO amount_text_view-->
+        <!-- TODO style="@style/Text.Regular.Normal.Dark"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

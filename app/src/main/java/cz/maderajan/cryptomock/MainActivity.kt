@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cz.maderajan.cryptomock.databinding.ActivityMainBinding
+import cz.maderajan.cryptomock.ui.exchangerate.ExchangeRatesFragment
 import cz.maderajan.cryptomock.ui.wallet.WalletFragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,11 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
-            TODO("TODO 2 (S) switchFragment depend on Id")
-            // TODO HINT R.id.???
-//            when (menuItem.itemId) {
-//
-//            }
+            when (menuItem.itemId) {
+                R.id.action_wallet -> {
+                    switchFragment(WalletFragment())
+                    true
+                }
+                R.id.action_exchange_rate -> {
+                    switchFragment(ExchangeRatesFragment())
+                    true
+                }
+                else -> false
+            }
         }
 
         switchFragment(WalletFragment())

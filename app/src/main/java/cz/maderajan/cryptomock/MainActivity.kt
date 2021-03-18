@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
-            TODO("TODO 2 switchFragment depend on Id")
+            TODO("TODO 2 (S) switchFragment depend on Id")
+            // TODO HINT R.id.???
 //            when (menuItem.itemId) {
 //
 //            }

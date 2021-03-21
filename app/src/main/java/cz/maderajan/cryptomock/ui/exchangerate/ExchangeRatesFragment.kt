@@ -16,6 +16,7 @@ class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
     private val ratesAdapter: ExchangeRatesAdapter by lazy {
         ExchangeRatesAdapter { currencyName ->
             context?.toast(R.string.exchange_title)
+            // TODO 4. start activity
         }
     }
 

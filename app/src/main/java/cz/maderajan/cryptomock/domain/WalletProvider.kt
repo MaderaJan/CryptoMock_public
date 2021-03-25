@@ -7,11 +7,9 @@ import cz.maderajan.cryptomock.data.WalletUnit
 import cz.maderajan.cryptomock.util.PrefManager
 import java.math.BigDecimal
 
-// TODO 5. wallet provider
 class WalletProvider(context: Context) {
 
     private val prefManager = PrefManager(context)
-
     private val walletType = object : TypeToken<List<WalletUnit>>() {}.type
 
     fun getWallet(): Map<String, BigDecimal> {
@@ -25,7 +23,6 @@ class WalletProvider(context: Context) {
             .toMap()
     }
 
-    private fun parseWalletJson(walletBalanceJson: String): List<WalletUnit> {
-        return Gson().fromJson(walletBalanceJson, walletType)
-    }
+    private fun parseWalletJson(walletBalanceJson: String): List<WalletUnit> =
+        Gson().fromJson(walletBalanceJson, walletType)
 }

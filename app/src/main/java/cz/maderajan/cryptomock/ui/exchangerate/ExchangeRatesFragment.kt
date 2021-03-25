@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cz.maderajan.cryptomock.R
 import cz.maderajan.cryptomock.databinding.FragmentExchangeBinding
 import cz.maderajan.cryptomock.repository.CoinbaseRepository
-import cz.maderajan.cryptomock.util.toast
+import cz.maderajan.cryptomock.ui.exchange.ExchangeActivity
 
 class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
 
@@ -15,8 +15,8 @@ class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
 
     private val ratesAdapter: ExchangeRatesAdapter by lazy {
         ExchangeRatesAdapter { currencyName ->
-            context?.toast(R.string.exchange_title)
-            // TODO 4. start activity
+            val intent = ExchangeActivity.newIntent(requireContext(), currencyName)
+            startActivity(intent)
         }
     }
 

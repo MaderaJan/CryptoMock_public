@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
 
-        <!--        TODO 2. Activity v manifestu-->
         <activity android:name=".ui.exchange.ExchangeActivity" />
 
     </application>

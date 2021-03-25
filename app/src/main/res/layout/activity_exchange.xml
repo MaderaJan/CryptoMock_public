@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO 3. (S) zobrazit karty dle design pomocí constraint layout -->
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -33,26 +31,34 @@
                 style="@style/Text.Medium.Normal.Dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exchange_label_from" />
+                android:text="@string/exchange_label_from"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
                 android:id="@+id/from_currency_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/from_label" />
 
             <TextView
                 android:id="@+id/to_label"
                 style="@style/Text.Medium.Normal.Dark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exchange_label_to" />
+                android:text="@string/exchange_label_to"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
                 android:id="@+id/to_currency_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/to_label" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,7 +84,9 @@
                 style="@style/Text.Medium.Normal.Light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exchange_label_amount" />
+                android:text="@string/exchange_label_amount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/amount_edit_text"
@@ -91,7 +99,10 @@
                 android:imeOptions="actionDone"
                 android:textSize="24sp"
                 android:hint="@string/exchange_label_amount_hint"
-                android:textColorHint="@color/text_color_light_alpha_70" />
+                android:textColorHint="@color/text_color_light_alpha_70"
+                app:layout_constraintEnd_toStartOf="@id/selected_currency_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount_label_text_view" />
 
             <TextView
                 android:id="@+id/selected_currency_text_view"
@@ -99,6 +110,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/amount_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="BTC" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import cz.maderajan.cryptomock.data.WalletUnit
 import cz.maderajan.cryptomock.databinding.FragmentWalletBinding
 import cz.maderajan.cryptomock.domain.WalletProvider
 
-// TODO 6. vytvoření recycler, adapter, viewholder pro portfolio
+// TODO 6. (S) vytvoření recycler, adapter, viewholder pro portfolio
 class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
     private lateinit var binding: FragmentWalletBinding

@@ -25,4 +25,20 @@ class WalletProvider(context: Context) {
 
     private fun parseWalletJson(walletBalanceJson: String): List<WalletUnit> =
         Gson().fromJson(walletBalanceJson, walletType)
+
+    fun updateWallet(boughtCurrency: WalletUnit, soldCurrency: WalletUnit) {
+        val updateWallet = getWallet().toMutableMap()
+
+        val soldCurrencyFromWallet = updateWallet[soldCurrency.currency] ?: throw IllegalStateException("Sold currency not in wallet")
+        updateWallet[soldCurrency.currency] = soldCurrencyFromWallet.minus(soldCurrency.amount)
+
+        val boughtCurrencyFromWallet = updateWallet[boughtCurrency.currency]
+        updateWallet[boughtCurrency.currency] = boughtCurrency.amount.plus(boughtCurrencyFromWallet ?: BigDecimal.valueOf(0))
+
+        val updateWalletList = updateWallet.map {
+            WalletUnit(currency = it.key, amount = it.value)
+        }
+
+        prefManager.wallet = Gson().toJson(updateWalletList, walletType)
+    }
 }

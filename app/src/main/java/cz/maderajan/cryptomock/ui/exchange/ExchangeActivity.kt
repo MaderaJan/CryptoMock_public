@@ -50,7 +50,7 @@ class ExchangeActivity : AppCompatActivity() {
         initFromCurrencySpinner()
         initToCurrencySpinner()
 
-        // TODO 13. Exchange + backbutton
+        // TODO 14. Exchange + backbutton
         binding.exchangeButton.setOnClickListener {
             exchangePoint.exchange(amountToExchangeString = binding.amountEditText.text.toString(),
                 successCallback = {

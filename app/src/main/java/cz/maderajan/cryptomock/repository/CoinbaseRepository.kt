@@ -16,6 +16,7 @@ class CoinbaseRepository(private val coinbaseApi: CoinbaseApi = RetrofitUtil.cre
         coinbaseApi.getExchangeRatesForCurrency(currency)
             .enqueue(object : Callback<ExchangeRatesWrapperResponse> {
 
+                // TODO 9. success
                 override fun onResponse(call: Call<ExchangeRatesWrapperResponse>, response: Response<ExchangeRatesWrapperResponse>) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
@@ -26,6 +27,7 @@ class CoinbaseRepository(private val coinbaseApi: CoinbaseApi = RetrofitUtil.cre
                     }
                 }
 
+                // TODO 9. fail
                 override fun onFailure(call: Call<ExchangeRatesWrapperResponse>, t: Throwable) {
                     failureCallback()
                 }

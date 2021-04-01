@@ -25,7 +25,13 @@ class WalletBalanceCalculator(private val coinbaseRepository: CoinbaseRepository
     }
 
     private fun calculateBalance(wallet: Map<String, BigDecimal>, exchangeRates: List<WalletUnit>): Double {
-        TODO()
-        // TODO 16. vypočítání ballance peněženky (pokud zbyde čas :D)
+        var finalBalance = BigDecimal(0)
+
+        wallet.forEach { entry ->
+            val rate = exchangeRates.first { it.currency == entry.key }.amount
+            finalBalance += entry.value / rate
+        }
+
+        return finalBalance.toDouble()
     }
 }

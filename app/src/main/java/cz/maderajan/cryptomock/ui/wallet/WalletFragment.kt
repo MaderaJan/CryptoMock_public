@@ -29,7 +29,6 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         WalletAdapter()
     }
 
-    // TODO 15. resultLauncher
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             updateWalletList()
@@ -40,7 +39,6 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentWalletBinding.bind(view)
 
-        // TODO 15. resultLauncher
         binding.exchangeButton.setOnClickListener {
             val intent = ExchangeActivity.newIntent(requireContext())
             resultLauncher.launch(intent)
@@ -63,7 +61,6 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         adapter.submitList(wallet)
     }
 
-    // TODO 16. init ballance
     private fun initBalance() {
         balanceCalculator.getWalletBalance(walletProvider.getWallet(),
             successCallback = { balance ->

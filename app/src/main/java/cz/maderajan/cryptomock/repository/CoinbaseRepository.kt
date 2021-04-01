@@ -11,12 +11,10 @@ import java.math.BigDecimal
 
 class CoinbaseRepository(private val coinbaseApi: CoinbaseApi = RetrofitUtil.createCoinbaseApi()) {
 
-    // TODO 8. provolání API pro získání currencies, Callback<>
     fun getExchangeRatesForCurrency(currency: String, successCallback: (List<WalletUnit>) -> Unit, failureCallback: () -> Unit) {
         coinbaseApi.getExchangeRatesForCurrency(currency)
             .enqueue(object : Callback<ExchangeRatesWrapperResponse> {
 
-                // TODO 9. success
                 override fun onResponse(call: Call<ExchangeRatesWrapperResponse>, response: Response<ExchangeRatesWrapperResponse>) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
@@ -27,7 +25,6 @@ class CoinbaseRepository(private val coinbaseApi: CoinbaseApi = RetrofitUtil.cre
                     }
                 }
 
-                // TODO 9. fail
                 override fun onFailure(call: Call<ExchangeRatesWrapperResponse>, t: Throwable) {
                     failureCallback()
                 }
@@ -35,8 +32,8 @@ class CoinbaseRepository(private val coinbaseApi: CoinbaseApi = RetrofitUtil.cre
     }
 
     private fun ExchangeRatesWrapperResponse?.mapToExchangeInfo(): List<WalletUnit> =
-        this?.data?.rates?.map {
-            WalletUnit(currency = it.key, amount = BigDecimal.valueOf(it.value))
+        this?.data?.rates?.map { (currency, amount) ->
+            WalletUnit(currency = currency, amount = BigDecimal.valueOf(amount))
         } ?: emptyList()
 
     fun getAvailableCurrencies(successCallback: (List<String>) -> Unit, failureCallback: () -> Unit) {

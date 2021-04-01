@@ -1,6 +1,5 @@
 package cz.maderajan.cryptomock.webservice.response
 
-// TODO 1. DATA LAYER
 data class ExchangeRatesWrapperResponse(
     val data: ExchangeRatesResponse
 )

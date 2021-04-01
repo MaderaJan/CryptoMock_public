@@ -50,7 +50,6 @@ class ExchangeActivity : AppCompatActivity() {
         initFromCurrencySpinner()
         initToCurrencySpinner()
 
-        // TODO 14. Exchange + backbutton
         binding.exchangeButton.setOnClickListener {
             exchangePoint.exchange(amountToExchangeString = binding.amountEditText.text.toString(),
                 successCallback = {
@@ -63,7 +62,6 @@ class ExchangeActivity : AppCompatActivity() {
         }
     }
 
-    // TODO 10. init currency spinner
     private fun initFromCurrencySpinner() {
         val walletCurrencies = WalletProvider(applicationContext).getWallet().map { it.key }
         val fromCurrenciesAdapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, walletCurrencies)
@@ -79,13 +77,28 @@ class ExchangeActivity : AppCompatActivity() {
         }
     }
 
-    // TODO 11. Exchange point
-    // TODO 12. (S) init currency spinner (z API)
     private fun initToCurrencySpinner() {
-//                val preselectedCurrency = intent.getStringExtra(EXTRA_CURRENCY)
-//                val preselectedCurrencyIndex = currencies.indexOfFirst { it == preselectedCurrency }
-//                if (preselectedCurrencyIndex != -1) {
-//                    binding.toCurrencySpinner.setSelection(preselectedCurrencyIndex)
-//                }
+        coinbaseRepository.getAvailableCurrencies(
+            successCallback = { currencies ->
+                val toCurrenciesAdapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, currencies)
+                binding.toCurrencySpinner.adapter = toCurrenciesAdapter
+                binding.toCurrencySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+                    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                        val selectedCurrency = currencies[position]
+                        exchangePoint.toCurrency = selectedCurrency
+                    }
+                }
+
+                val preselectedCurrency = intent.getStringExtra(EXTRA_CURRENCY)
+                val preselectedCurrencyIndex = currencies.indexOfFirst { it == preselectedCurrency }
+                if (preselectedCurrencyIndex != -1) {
+                    exchangePoint.toCurrency = preselectedCurrency
+                    binding.toCurrencySpinner.setSelection(preselectedCurrencyIndex)
+                }
+            }, failureCallback = {
+                applicationContext?.toast(R.string.error_unknown)
+            })
     }
 }

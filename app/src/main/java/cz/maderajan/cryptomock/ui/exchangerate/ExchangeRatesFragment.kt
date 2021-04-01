@@ -17,7 +17,6 @@ class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
 
     private val coinbaseRepository = CoinbaseRepository()
 
-    // TODO 5. Vytvoření cache pro dialog
     private var cachedCurrencies = emptyList<String>()
 
     private lateinit var binding: FragmentExchangeBinding
@@ -36,16 +35,13 @@ class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = ratesAdapter
 
-        // TODO 6. Otevření dialogu
         binding.currencyButton.setOnClickListener {
             openSelectCurrencyDialog()
         }
 
-        // TODO 7. deleted -> ratesAdapter.submitList(coinbaseRepository.getMockedData())
         updateExchangeRates(BuildConfig.DEFAULT_CURRENCY)
     }
 
-    // TODO 7. Call na API s currencies
     private fun updateExchangeRates(currency: String) {
         binding.currencyButton.text = currency
         coinbaseRepository.getExchangeRatesForCurrency(currency = currency,
@@ -57,7 +53,6 @@ class ExchangeRatesFragment : Fragment(R.layout.fragment_exchange) {
             })
     }
 
-    // TODO 6. Otevření dialogu
     private fun openSelectCurrencyDialog() {
         AlertDialog.Builder(requireContext())
             .setSingleChoiceItems(cachedCurrencies.toTypedArray(), 0, null)

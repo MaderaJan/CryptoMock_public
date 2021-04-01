@@ -5,7 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-// TODO 2. CONTRACT
 interface CoinbaseApi {
 
     @GET("exchange-rates")

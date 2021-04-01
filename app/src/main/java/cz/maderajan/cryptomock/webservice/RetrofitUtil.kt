@@ -6,7 +6,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// TODO 3. RETROFIT, vytvární API interface, vytváření OkHttp klientu, GsonConverter factory
 object RetrofitUtil {
 
     fun createCoinbaseApi(): CoinbaseApi =

@@ -2,6 +2,7 @@ package cz.maderajan.cryptomock.domain
 
 import android.content.Context
 import cz.maderajan.cryptomock.R
+import cz.maderajan.cryptomock.data.WalletUnit
 import cz.maderajan.cryptomock.repository.CoinbaseRepository
 import java.math.BigDecimal
 
@@ -15,7 +16,6 @@ class ExchangePoint(context: Context, private val coinbaseRepository: CoinbaseRe
     var fromCurrency: String? = null
     var toCurrency: String? = null
 
-    // TODO 13. popsat funkci exchange
     fun exchange(amountToExchangeString: String, successCallback: () -> Unit, failureCallback: (Int) -> Unit) {
         try {
             val walletBalance = wallet[fromCurrency]
@@ -40,7 +40,20 @@ class ExchangePoint(context: Context, private val coinbaseRepository: CoinbaseRe
         successCallback: () -> Unit,
         failureCallback: (Int) -> Unit
     ) {
-        // TODO 13. (S) make exchange
-        // TODO -> uložení do wallet walletProvider.updateWallet()
+        coinbaseRepository.getExchangeRatesForCurrency(fromCurrency, successCallback = { exchangeInfoList ->
+            val exchangeInfo = exchangeInfoList.firstOrNull { it.currency == toCurrency }
+            if (exchangeInfo == null) {
+                failureCallback(R.string.exchange_error_cannot_exchange)
+            } else {
+                val boughtAmount = amountToExchange * exchangeInfo.amount
+                val boughtCurrency = WalletUnit(boughtAmount, toCurrency)
+                val soldCurrency = WalletUnit(amountToExchange, fromCurrency)
+
+                walletProvider.updateWallet(boughtCurrency, soldCurrency)
+                successCallback()
+            }
+        }, failureCallback = {
+            failureCallback(R.string.error_unknown)
+        })
     }
 }

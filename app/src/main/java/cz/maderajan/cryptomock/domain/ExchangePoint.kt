@@ -4,9 +4,14 @@ import android.content.Context
 import cz.maderajan.cryptomock.R
 import cz.maderajan.cryptomock.data.WalletUnit
 import cz.maderajan.cryptomock.repository.CoinbaseRepository
+import cz.maderajan.cryptomock.repository.TransactionRepository
 import java.math.BigDecimal
 
-class ExchangePoint(context: Context, private val coinbaseRepository: CoinbaseRepository = CoinbaseRepository()) {
+class ExchangePoint(
+    context: Context,
+    private val coinbaseRepository: CoinbaseRepository = CoinbaseRepository(),
+    private val transactionRepository: TransactionRepository = TransactionRepository(context)
+) {
 
     private val walletProvider = WalletProvider(context)
     private val wallet: Map<String, BigDecimal> by lazy {
@@ -50,6 +55,7 @@ class ExchangePoint(context: Context, private val coinbaseRepository: CoinbaseRe
                 val soldCurrency = WalletUnit(amountToExchange, fromCurrency)
 
                 walletProvider.updateWallet(boughtCurrency, soldCurrency)
+                transactionRepository.saveTransaction(soldCurrency, boughtCurrency)
                 successCallback()
             }
         }, failureCallback = {

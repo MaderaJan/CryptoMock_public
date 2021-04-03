@@ -6,6 +6,7 @@
 
     <string name="main_bottom_menu_wallet">Peněženka</string>
     <string name="main_bottom_menu_exchange_rate">Kurzy</string>
+    <string name="main_bottom_menu_transactions">Transakce</string>
 
     <string name="wallet_card_label_balance">Zůstatek</string>
     <string name="wallet_label_portfolio">Portfolio</string>
@@ -21,4 +22,6 @@
     <string name="exchange_error_not_enough_money">Na peněžence máte nedostatek peněz</string>
     <string name="exchange_error_wrong_money_format">Byl zadán špatný formát měny</string>
     <string name="exchange_error_cannot_exchange">Není možné směnit</string>
+    <string name="from_to_currency_with_bullet">%s \u2022 %s</string>
+    <string name="amount_with_currency">%s %s</string>
 </resources>

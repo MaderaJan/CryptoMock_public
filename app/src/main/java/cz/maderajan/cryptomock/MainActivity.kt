@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cz.maderajan.cryptomock.databinding.ActivityMainBinding
 import cz.maderajan.cryptomock.ui.exchangerate.ExchangeRatesFragment
+import cz.maderajan.cryptomock.ui.transactions.TransactionsFragment
 import cz.maderajan.cryptomock.ui.wallet.WalletFragment
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.action_exchange_rate -> {
                     switchFragment(ExchangeRatesFragment())
+                    true
+                }
+                R.id.action_transactions -> {
+                    switchFragment(TransactionsFragment())
                     true
                 }
                 else -> false

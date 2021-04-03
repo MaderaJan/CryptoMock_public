@@ -13,4 +13,10 @@
         android:icon="@drawable/ic_exchange"
         android:title="@string/main_bottom_menu_exchange_rate" />
 
+    <item
+        android:id="@+id/action_transactions"
+        android:enabled="true"
+        android:icon="@drawable/ic_transcations"
+        android:title="@string/main_bottom_menu_transactions" />
+
 </menu>
